@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmap | SkillSync</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <script src="https://cdn.jsdelivr.net/npm/three@0.156.1/build/three.min.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <nav class="sidebar">
+      <div class="logo">SkillSync</div>
+      <ul class="nav-links">
+  <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+  <li><a href="{{ url_for('roadmap') }}" class="active">Roadmap</a></li>
+  <li><a href="{{ url_for('interview') }}">Interview Practice</a></li>
+  <li><a href="#">Settings</a></li>
+</ul>
+
+    </nav>
+
+    <main class="main-content">
+      <section class="roadmap-section">
+        <h2>📍 Learning Roadmap</h2>
+        <p>Select your domain to view the recommended roadmap.</p>
+
+        <select id="domainSelect">
+          <option value="">Select Domain</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Data Science">Data Science</option>
+          <option value="AI & ML">AI & ML</option>
+          <option value="Cloud Computing">Cloud Computing</option>
+        </select>
+
+        <div id="roadmapContainer" class="roadmap-container"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/roadmap.js') }}"></script>
+</body>
+</html>

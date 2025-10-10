@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | SkillSync</title>
+
+  <!-- Correct Flask way to load CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+  <div class="dashboard-container">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="logo">SkillSync</div>
+      <ul class="nav-links">
+        <li><a href="{{ url_for('dashboard') }}" class="active">Dashboard</a></li>
+        <li><a href="{{ url_for('roadmap') }}">Roadmap</a></li>
+        <li><a href="{{ url_for('interview') }}">Interview Practice</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="profile-section">
+        <h2>Welcome, <span id="userName">{{ user_data.name or 'User' }}</span> 👋</h2>
+        <div class="profile-details">
+          <p><strong>🎓 Education:</strong> {{ user_data.education or 'Not Found' }}</p>
+          <p><strong>💼 Experience:</strong> {{ user_data.experience or 'Fresher' }}</p>
+          <p><strong>🧠 Skills:</strong> 
+            {% if user_data.skills %}
+              {{ user_data.skills | join(', ') }}
+            {% else %}
+              None Found
+            {% endif %}
+          </p>
+          <p><strong>📂 Projects:</strong>
+            {% if user_data.projects %}
+              <ul>
+                {% for project in user_data.projects %}
+                  <li>{{ project }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              No projects found
+            {% endif %}
+          </p>
+        </div>
+      </section>
+
+      <section class="actions-section">
+        <h3>Next Steps 🚀</h3>
+        <p>Explore resources based on your profile:</p>
+        <div class="action-buttons">
+          <a href="{{ url_for('roadmap') }}" class="btn">View Roadmap</a>
+          <a href="{{ url_for('interview') }}" class="btn">Practice Interviews</a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
