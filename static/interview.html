@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview Practice | SkillSync</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <nav class="sidebar">
+      <div class="logo">SkillSync</div>
+      <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="interview.html" class="active">Interview Practice</a></li>
+        <li><a href="#">Settings</a></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <section class="interview-section">
+        <h2>🧠 Interview Practice</h2>
+        <div class="interview-controls">
+          <select id="companySelect">
+            <option value="">Select Company</option>
+            <option value="Google">Google</option>
+            <option value="TCS">TCS</option>
+            <option value="Accenture">Accenture</option>
+          </select>
+          <select id="roleSelect">
+            <option value="">Select Role</option>
+            <option value="Data Analyst">Data Analyst</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="ML Engineer">ML Engineer</option>
+          </select>
+          <button id="startInterview">Start Practice</button>
+        </div>
+        <div id="interviewQuestions" class="interview-questions"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="interview.js"></script>
+</body>
+</html>
